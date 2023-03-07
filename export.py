@@ -17,16 +17,18 @@ torch.backends.cudnn.benchmark = True
 # From cuLANE, Change this line if you are using TuSimple
 cls_num_per_lane = 18
 griding_num = 200
-backbone =18
+backbone = 18
 
-net = parsingNet(pretrained = False,backbone='18', cls_dim = (griding_num+1,cls_num_per_lane,4),
-                use_aux=False)
+net = parsingNet(pretrained=False,
+                 backbone='18',
+                 cls_dim=(griding_num + 1, cls_num_per_lane, 4),
+                 use_aux=False)
 
 # Change test_model where your model stored.
 test_model = '/data/Models/UltraFastLaneDetection/culane_18.pth'
 
 #state_dict = torch.load(test_model, map_location='cpu')['model'] # CPU
-state_dict = torch.load(test_model, map_location='cuda')['model'] # CUDA
+state_dict = torch.load(test_model, map_location='cuda')['model']  # CUDA
 compatible_state_dict = {}
 for k, v in state_dict.items():
     if 'module.' in k:
@@ -44,4 +46,4 @@ y = net(img)  # dry run
 ts = torch.jit.trace(net, img)
 
 #ts.save('UFLD.torchscript-cpu.pt') # CPU
-ts.save('UFLD.torchscript-cuda.pt') # CUDA
+ts.save('UFLD.torchscript-cuda.pt')  # CUDA

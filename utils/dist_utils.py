@@ -53,6 +53,7 @@ def synchronize():
         return
     dist.barrier()
 
+
 def dist_cat_reduce_tensor(tensor):
     if not dist.is_available():
         return tensor
@@ -61,12 +62,13 @@ def dist_cat_reduce_tensor(tensor):
     # dist_print(tensor)
     rt = tensor.clone()
     all_list = [torch.zeros_like(tensor) for _ in range(get_world_size())]
-    dist.all_gather(all_list,rt)
+    dist.all_gather(all_list, rt)
     # dist_print(all_list[0][1],all_list[1][1],all_list[2][1],all_list[3][1])
     # dist_print(all_list[0][2],all_list[1][2],all_list[2][2],all_list[3][2])
     # dist_print(all_list[0][3],all_list[1][3],all_list[2][3],all_list[3][3])
     # dist_print(all_list[0].shape)
-    return torch.cat(all_list,dim = 0)
+    return torch.cat(all_list, dim=0)
+
 
 def dist_sum_reduce_tensor(tensor):
     if not dist.is_available():
@@ -115,9 +117,9 @@ def all_gather(data):
     # gathering tensors of different shapes
     tensor_list = []
     for _ in size_list:
-        tensor_list.append(torch.ByteTensor(size=(max_size,)).to("cuda"))
+        tensor_list.append(torch.ByteTensor(size=(max_size, )).to("cuda"))
     if local_size != max_size:
-        padding = torch.ByteTensor(size=(max_size - local_size,)).to("cuda")
+        padding = torch.ByteTensor(size=(max_size - local_size, )).to("cuda")
         tensor = torch.cat((tensor, padding), dim=0)
     dist.all_gather(tensor_list, tensor)
 
@@ -152,7 +154,7 @@ class DistSummaryWriter(SummaryWriter):
     def add_histogram(self, *args, **kwargs):
         if can_log():
             super(DistSummaryWriter, self).add_histogram(*args, **kwargs)
-    
+
     def add_image(self, *args, **kwargs):
         if can_log():
             super(DistSummaryWriter, self).add_image(*args, **kwargs)
@@ -170,4 +172,3 @@ def dist_tqdm(obj, *args, **kwargs):
         return tqdm.tqdm(obj, *args, **kwargs)
     else:
         return obj
-

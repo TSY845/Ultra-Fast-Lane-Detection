@@ -9,6 +9,7 @@ import cv2
 
 # ===============================img tranforms============================
 
+
 class Compose2(object):
     def __init__(self, transforms):
         self.transforms = transforms
@@ -22,18 +23,24 @@ class Compose2(object):
             img, mask, bbx = t(img, mask, bbx)
         return img, mask, bbx
 
+
 class FreeScale(object):
     def __init__(self, size):
         self.size = size  # (h, w)
 
     def __call__(self, img, mask):
-        return img.resize((self.size[1], self.size[0]), Image.BILINEAR), mask.resize((self.size[1], self.size[0]), Image.NEAREST)
+        return img.resize((self.size[1], self.size[0]),
+                          Image.BILINEAR), mask.resize(
+                              (self.size[1], self.size[0]), Image.NEAREST)
+
 
 class FreeScaleMask(object):
-    def __init__(self,size):
+    def __init__(self, size):
         self.size = size
-    def __call__(self,mask):
+
+    def __call__(self, mask):
         return mask.resize((self.size[1], self.size[0]), Image.NEAREST)
+
 
 class Scale(object):
     def __init__(self, size):
@@ -50,11 +57,13 @@ class Scale(object):
         if w < h:
             ow = self.size
             oh = int(self.size * h / w)
-            return img.resize((ow, oh), Image.BILINEAR), mask.resize((ow, oh), Image.NEAREST)
+            return img.resize((ow, oh), Image.BILINEAR), mask.resize(
+                (ow, oh), Image.NEAREST)
         else:
             oh = self.size
             ow = int(self.size * w / h)
-            return img.resize((ow, oh), Image.BILINEAR), mask.resize((ow, oh), Image.NEAREST)
+            return img.resize((ow, oh), Image.BILINEAR), mask.resize(
+                (ow, oh), Image.NEAREST)
 
 
 class RandomRotate(object):
@@ -62,13 +71,11 @@ class RandomRotate(object):
     the given size. size can be a tuple (target_height, target_width)
     or an integer, in which case the target will be of a square shape (size, size)
     """
-
     def __init__(self, angle):
         self.angle = angle
 
     def __call__(self, image, label):
         assert label is None or image.size == label.size
-
 
         angle = random.randint(0, self.angle * 2) - self.angle
 
@@ -78,8 +85,8 @@ class RandomRotate(object):
         return image, label
 
 
-
 # ===============================label tranforms============================
+
 
 class DeNormalize(object):
     def __init__(self, mean, std):
@@ -97,14 +104,14 @@ class MaskToTensor(object):
         return torch.from_numpy(np.array(img, dtype=np.int32)).long()
 
 
-def find_start_pos(row_sample,start_line):
+def find_start_pos(row_sample, start_line):
     # row_sample = row_sample.sort()
     # for i,r in enumerate(row_sample):
     #     if r >= start_line:
     #         return i
-    l,r = 0,len(row_sample)-1
+    l, r = 0, len(row_sample) - 1
     while True:
-        mid = int((l+r)/2)
+        mid = int((l + r) / 2)
         if r - l == 1:
             return r
         if row_sample[mid] < start_line:
@@ -114,54 +121,58 @@ def find_start_pos(row_sample,start_line):
         if row_sample[mid] == start_line:
             return mid
 
+
 class RandomLROffsetLABEL(object):
-    def __init__(self,max_offset):
+    def __init__(self, max_offset):
         self.max_offset = max_offset
-    def __call__(self,img,label):
-        offset = np.random.randint(-self.max_offset,self.max_offset)
+
+    def __call__(self, img, label):
+        offset = np.random.randint(-self.max_offset, self.max_offset)
         w, h = img.size
 
         img = np.array(img)
         if offset > 0:
-            img[:,offset:,:] = img[:,0:w-offset,:]
-            img[:,:offset,:] = 0
+            img[:, offset:, :] = img[:, 0:w - offset, :]
+            img[:, :offset, :] = 0
         if offset < 0:
             real_offset = -offset
-            img[:,0:w-real_offset,:] = img[:,real_offset:,:]
-            img[:,w-real_offset:,:] = 0
+            img[:, 0:w - real_offset, :] = img[:, real_offset:, :]
+            img[:, w - real_offset:, :] = 0
 
         label = np.array(label)
         if offset > 0:
-            label[:,offset:] = label[:,0:w-offset]
-            label[:,:offset] = 0
+            label[:, offset:] = label[:, 0:w - offset]
+            label[:, :offset] = 0
         if offset < 0:
             offset = -offset
-            label[:,0:w-offset] = label[:,offset:]
-            label[:,w-offset:] = 0
-        return Image.fromarray(img),Image.fromarray(label)
+            label[:, 0:w - offset] = label[:, offset:]
+            label[:, w - offset:] = 0
+        return Image.fromarray(img), Image.fromarray(label)
+
 
 class RandomUDoffsetLABEL(object):
-    def __init__(self,max_offset):
+    def __init__(self, max_offset):
         self.max_offset = max_offset
-    def __call__(self,img,label):
-        offset = np.random.randint(-self.max_offset,self.max_offset)
+
+    def __call__(self, img, label):
+        offset = np.random.randint(-self.max_offset, self.max_offset)
         w, h = img.size
 
         img = np.array(img)
         if offset > 0:
-            img[offset:,:,:] = img[0:h-offset,:,:]
-            img[:offset,:,:] = 0
+            img[offset:, :, :] = img[0:h - offset, :, :]
+            img[:offset, :, :] = 0
         if offset < 0:
             real_offset = -offset
-            img[0:h-real_offset,:,:] = img[real_offset:,:,:]
-            img[h-real_offset:,:,:] = 0
+            img[0:h - real_offset, :, :] = img[real_offset:, :, :]
+            img[h - real_offset:, :, :] = 0
 
         label = np.array(label)
         if offset > 0:
-            label[offset:,:] = label[0:h-offset,:]
-            label[:offset,:] = 0
+            label[offset:, :] = label[0:h - offset, :]
+            label[:offset, :] = 0
         if offset < 0:
             offset = -offset
-            label[0:h-offset,:] = label[offset:,:]
-            label[h-offset:,:] = 0
-        return Image.fromarray(img),Image.fromarray(label)
+            label[0:h - offset, :] = label[offset:, :]
+            label[h - offset:, :] = 0
+        return Image.fromarray(img), Image.fromarray(label)
