@@ -32,8 +32,8 @@ def test_practical_without_readtime():
         x = x.unsqueeze(0).cuda() + 1
         y = net(x)
 
-    print("pracrical image input size:", img.shape)
-    print("pracrical tensor input size:", x.shape)
+    print("practical image input size:", img.shape)
+    print("practical tensor input size:", x.shape)
     t_all = []
     for i in range(100):
         _, img = cap.read()
@@ -69,8 +69,8 @@ def test_practical():
         x = x.unsqueeze(0).cuda() + 1
         y = net(x)
 
-    print("pracrical image input size:", img.shape)
-    print("pracrical tensor input size:", x.shape)
+    print("practical image input size:", img.shape)
+    print("practical tensor input size:", x.shape)
     t_all = []
     t_capture = []
     t_preprocessing = []
@@ -122,7 +122,7 @@ def test_theoretical():
         y = net(x)
         t2 = time.time()
         t_all.append(t2 - t1)
-    print("theortical")
+    print("theoretical")
     print('\taverage time:', np.mean(t_all) / 1)
     print('\taverage fps:', 1 / np.mean(t_all))
 
