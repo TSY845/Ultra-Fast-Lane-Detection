@@ -1,6 +1,6 @@
 # DATA
 dataset = 'Tusimple'
-data_root = None
+data_root = 'E:\\Graduation_Project\\Dataset\\TuSimple'
 
 # TRAIN
 epoch = 100
