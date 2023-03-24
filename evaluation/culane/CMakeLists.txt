@@ -37,7 +37,7 @@ set(dep_libs "")
 
 #--- OpenCV
 # You may switch different version of OpenCV like this:
-# set(OpenCV_DIR "/usr/local/opencv-4.3.0" CACHE PATH "")
+set(OpenCV_DIR D:/OpenCV/build)
 find_package(OpenCV REQUIRED 
     COMPONENTS core highgui imgproc imgcodecs
 )

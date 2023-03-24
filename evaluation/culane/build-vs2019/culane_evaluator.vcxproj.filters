@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="D:\Coding\Python\Graduation_Project\Ultra-Fast-Lane-Detection\evaluation\culane\src\counter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Coding\Python\Graduation_Project\Ultra-Fast-Lane-Detection\evaluation\culane\src\evaluate.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Coding\Python\Graduation_Project\Ultra-Fast-Lane-Detection\evaluation\culane\src\lane_compare.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Coding\Python\Graduation_Project\Ultra-Fast-Lane-Detection\evaluation\culane\src\spline.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Coding\Python\Graduation_Project\Ultra-Fast-Lane-Detection\evaluation\culane\getopt\getopt.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="D:\Coding\Python\Graduation_Project\Ultra-Fast-Lane-Detection\evaluation\culane\include\counter.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Coding\Python\Graduation_Project\Ultra-Fast-Lane-Detection\evaluation\culane\include\hungarianGraph.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Coding\Python\Graduation_Project\Ultra-Fast-Lane-Detection\evaluation\culane\include\lane_compare.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Coding\Python\Graduation_Project\Ultra-Fast-Lane-Detection\evaluation\culane\include\spline.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Coding\Python\Graduation_Project\Ultra-Fast-Lane-Detection\evaluation\culane\getopt\getopt.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\Coding\Python\Graduation_Project\Ultra-Fast-Lane-Detection\evaluation\culane\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{44D53DF2-DB1B-304C-956D-DDFDC03D3DD1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{0077434A-A079-3AE1-9201-3E4B0D43C342}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

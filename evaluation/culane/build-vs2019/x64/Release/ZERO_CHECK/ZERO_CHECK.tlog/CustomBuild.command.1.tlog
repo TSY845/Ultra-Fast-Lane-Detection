@@ -1,0 +1,10 @@
+^D:\CODING\PYTHON\GRADUATION_PROJECT\ULTRA-FAST-LANE-DETECTION\EVALUATION\CULANE\BUILD-VS2019\CMAKEFILES\E14BE346E63404CF48294040893C3635\GENERATE.STAMP.RULE
+setlocal
+"D:\Program Files (x86)\cmake-3.21.3-windows-x86_64\bin\cmake.exe" -SD:/Coding/Python/Graduation_Project/Ultra-Fast-Lane-Detection/evaluation/culane -BD:/Coding/Python/Graduation_Project/Ultra-Fast-Lane-Detection/evaluation/culane/build-vs2019 --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file D:/Coding/Python/Graduation_Project/Ultra-Fast-Lane-Detection/evaluation/culane/build-vs2019/culane_evaluator.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

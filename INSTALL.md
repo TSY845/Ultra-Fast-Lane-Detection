@@ -89,7 +89,7 @@
     ```Shell
     mkdir build-vs2017
     cd build-vs2017
-    cmake .. -G "Visual Studio 15 2017 Win64"
+    cmake .. -G "Visual Studio 16 2019" -A x64
     cmake --build . --config Release  
     # or, open the "xxx.sln" file by Visual Studio and click build button
     move culane_evaluator ../evaluate

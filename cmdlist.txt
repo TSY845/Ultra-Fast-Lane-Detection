@@ -1,0 +1,3 @@
+conda activate pytorch
+python test.py configs/culane.py --test_model culane_18.pth --test_work_dir ../tmp
+doskey /history >cmdlist.txt

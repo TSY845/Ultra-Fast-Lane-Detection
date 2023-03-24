@@ -255,48 +255,95 @@ def call_culane_eval(data_dir, exp_name, output_path):
     eval_cmd = './evaluation/culane/evaluate'
     if platform.system() == 'Windows':
         eval_cmd = eval_cmd.replace('/', os.sep)
+        data_dir = data_dir.replace('/', os.sep)
+        detect_dir = detect_dir.replace('/', os.sep)
+        list0 = list0.replace('/', os.sep)
+        list1 = list1.replace('/', os.sep)
+        list2 = list2.replace('/', os.sep)
+        list3 = list3.replace('/', os.sep)
+        list4 = list4.replace('/', os.sep)
+        list5 = list5.replace('/', os.sep)
+        list6 = list6.replace('/', os.sep)
+        list7 = list7.replace('/', os.sep)
+        list8 = list8.replace('/', os.sep)
+        out0 = out0.replace('/', os.sep)
+        out1 = out1.replace('/', os.sep)
+        out2 = out2.replace('/', os.sep)
+        out3 = out3.replace('/', os.sep)
+        out4 = out4.replace('/', os.sep)
+        out5 = out5.replace('/', os.sep)
+        out6 = out6.replace('/', os.sep)
+        out7 = out7.replace('/', os.sep)
+        out8 = out8.replace('/', os.sep)
 
-    # print('./evaluate -a %s -d %s -i %s -l %s -w %s -t %s -c %s -r %s -f %s -o %s'%(data_dir,detect_dir,data_dir,list0,w_lane,iou,im_w,im_h,frame,out0))
+    # print(
+    #     '.\\evaluate -a %s -d %s -i %s -l %s -w %s -t %s -c %s -r %s -f %s -o %s'
+    #     % (data_dir, detect_dir, data_dir, list0, w_lane, iou, im_w, im_h,
+    #        frame, out0))
     os.system(
         '%s -a %s -d %s -i %s -l %s -w %s -t %s -c %s -r %s -f %s -o %s' %
         (eval_cmd, data_dir, detect_dir, data_dir, list0, w_lane, iou, im_w,
          im_h, frame, out0))
-    # print('./evaluate -a %s -d %s -i %s -l %s -w %s -t %s -c %s -r %s -f %s -o %s'%(data_dir,detect_dir,data_dir,list1,w_lane,iou,im_w,im_h,frame,out1))
+    # print(
+    #     '.\\evaluate -a %s -d %s -i %s -l %s -w %s -t %s -c %s -r %s -f %s -o %s'
+    #     % (data_dir, detect_dir, data_dir, list1, w_lane, iou, im_w, im_h,
+    #        frame, out1))
     os.system(
         '%s -a %s -d %s -i %s -l %s -w %s -t %s -c %s -r %s -f %s -o %s' %
         (eval_cmd, data_dir, detect_dir, data_dir, list1, w_lane, iou, im_w,
          im_h, frame, out1))
-    # print('./evaluate -a %s -d %s -i %s -l %s -w %s -t %s -c %s -r %s -f %s -o %s'%(data_dir,detect_dir,data_dir,list2,w_lane,iou,im_w,im_h,frame,out2))
+    # print(
+    #     '.\\evaluate -a %s -d %s -i %s -l %s -w %s -t %s -c %s -r %s -f %s -o %s'
+    #     % (data_dir, detect_dir, data_dir, list2, w_lane, iou, im_w, im_h,
+    #        frame, out2))
     os.system(
         '%s -a %s -d %s -i %s -l %s -w %s -t %s -c %s -r %s -f %s -o %s' %
         (eval_cmd, data_dir, detect_dir, data_dir, list2, w_lane, iou, im_w,
          im_h, frame, out2))
-    # print('./evaluate -a %s -d %s -i %s -l %s -w %s -t %s -c %s -r %s -f %s -o %s'%(data_dir,detect_dir,data_dir,list3,w_lane,iou,im_w,im_h,frame,out3))
+    # print(
+    #     '.\\evaluate -a %s -d %s -i %s -l %s -w %s -t %s -c %s -r %s -f %s -o %s'
+    #     % (data_dir, detect_dir, data_dir, list3, w_lane, iou, im_w, im_h,
+    #        frame, out3))
     os.system(
         '%s -a %s -d %s -i %s -l %s -w %s -t %s -c %s -r %s -f %s -o %s' %
         (eval_cmd, data_dir, detect_dir, data_dir, list3, w_lane, iou, im_w,
          im_h, frame, out3))
-    # print('./evaluate -a %s -d %s -i %s -l %s -w %s -t %s -c %s -r %s -f %s -o %s'%(data_dir,detect_dir,data_dir,list4,w_lane,iou,im_w,im_h,frame,out4))
+    # print(
+    #     '.\\evaluate -a %s -d %s -i %s -l %s -w %s -t %s -c %s -r %s -f %s -o %s'
+    #     % (data_dir, detect_dir, data_dir, list4, w_lane, iou, im_w, im_h,
+    #        frame, out4))
     os.system(
         '%s -a %s -d %s -i %s -l %s -w %s -t %s -c %s -r %s -f %s -o %s' %
         (eval_cmd, data_dir, detect_dir, data_dir, list4, w_lane, iou, im_w,
          im_h, frame, out4))
-    # print('./evaluate -a %s -d %s -i %s -l %s -w %s -t %s -c %s -r %s -f %s -o %s'%(data_dir,detect_dir,data_dir,list5,w_lane,iou,im_w,im_h,frame,out5))
+    # print(
+    #     '.\\evaluate -a %s -d %s -i %s -l %s -w %s -t %s -c %s -r %s -f %s -o %s'
+    #     % (data_dir, detect_dir, data_dir, list5, w_lane, iou, im_w, im_h,
+    #        frame, out5))
     os.system(
         '%s -a %s -d %s -i %s -l %s -w %s -t %s -c %s -r %s -f %s -o %s' %
         (eval_cmd, data_dir, detect_dir, data_dir, list5, w_lane, iou, im_w,
          im_h, frame, out5))
-    # print('./evaluate -a %s -d %s -i %s -l %s -w %s -t %s -c %s -r %s -f %s -o %s'%(data_dir,detect_dir,data_dir,list6,w_lane,iou,im_w,im_h,frame,out6))
+    # print(
+    #     '.\\evaluate -a %s -d %s -i %s -l %s -w %s -t %s -c %s -r %s -f %s -o %s'
+    #     % (data_dir, detect_dir, data_dir, list6, w_lane, iou, im_w, im_h,
+    #        frame, out6))
     os.system(
         '%s -a %s -d %s -i %s -l %s -w %s -t %s -c %s -r %s -f %s -o %s' %
         (eval_cmd, data_dir, detect_dir, data_dir, list6, w_lane, iou, im_w,
          im_h, frame, out6))
-    # print('./evaluate -a %s -d %s -i %s -l %s -w %s -t %s -c %s -r %s -f %s -o %s'%(data_dir,detect_dir,data_dir,list7,w_lane,iou,im_w,im_h,frame,out7))
+    # print(
+    #     '.\\evaluate -a %s -d %s -i %s -l %s -w %s -t %s -c %s -r %s -f %s -o %s'
+    #     % (data_dir, detect_dir, data_dir, list7, w_lane, iou, im_w, im_h,
+    #        frame, out7))
     os.system(
         '%s -a %s -d %s -i %s -l %s -w %s -t %s -c %s -r %s -f %s -o %s' %
         (eval_cmd, data_dir, detect_dir, data_dir, list7, w_lane, iou, im_w,
          im_h, frame, out7))
-    # print('./evaluate -a %s -d %s -i %s -l %s -w %s -t %s -c %s -r %s -f %s -o %s'%(data_dir,detect_dir,data_dir,list8,w_lane,iou,im_w,im_h,frame,out8))
+    # print(
+    #     '.\\evaluate -a %s -d %s -i %s -l %s -w %s -t %s -c %s -r %s -f %s -o %s'
+    #     % (data_dir, detect_dir, data_dir, list8, w_lane, iou, im_w, im_h,
+    #        frame, out8))
     os.system(
         '%s -a %s -d %s -i %s -l %s -w %s -t %s -c %s -r %s -f %s -o %s' %
         (eval_cmd, data_dir, detect_dir, data_dir, list8, w_lane, iou, im_w,

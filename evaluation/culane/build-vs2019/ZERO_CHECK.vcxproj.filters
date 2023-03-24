@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="D:\Coding\Python\Graduation_Project\Ultra-Fast-Lane-Detection\evaluation\culane\build-vs2019\CMakeFiles\e14be346e63404cf48294040893c3635\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{0989EB81-BC3B-32EC-9950-4F6C9FB85066}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

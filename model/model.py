@@ -1,3 +1,4 @@
+'''This is the CNN model for the auxiliary segmentation task.'''
 import torch
 from model.backbone import resnet
 import numpy as np

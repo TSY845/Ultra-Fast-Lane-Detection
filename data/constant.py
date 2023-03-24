@@ -3,6 +3,7 @@
 # since our method will resize the image to 288x800 for training, the row anchors are defined with the height of 288
 # you can modify these row anchors according to your training image resolution
 
+# TuSimple: Ignore top 1/4 rows, 4 pixels wide, 56 row anchors in total
 tusimple_row_anchor = [
     64, 68, 72, 76, 80, 84, 88, 92, 96, 100, 104, 108, 112, 116, 120, 124, 128,
     132, 136, 140, 144, 148, 152, 156, 160, 164, 168, 172, 176, 180, 184, 188,
