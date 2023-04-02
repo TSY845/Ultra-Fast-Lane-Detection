@@ -208,6 +208,12 @@ def eval_lane(net, dataset, data_root, work_dir, griding_num, use_aux,
             for r in res:
                 dist_print(r['name'], r['value'])
         synchronize()
+        if is_main_process():
+            for r in res:
+                if r['name'] == 'F1':
+                    return r['value']
+        else:
+            return None
 
 
 def read_helper(path):

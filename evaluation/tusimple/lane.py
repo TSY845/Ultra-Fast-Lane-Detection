@@ -83,10 +83,17 @@ class LaneEval(object):
             fn += n
         num = len(gts)
         # the first return parameter is the default ranking parameter
+        pr = 1 - fp / num
+        re = 1 - fn / num
+        if (pr+re) == 0:
+            f1 = 0
+        else:
+            f1 = 2*pr*re/(pr+re)
         return json.dumps([
             {'name': 'Accuracy', 'value': accuracy / num, 'order': 'desc'},
             {'name': 'FP', 'value': fp / num, 'order': 'asc'},
-            {'name': 'FN', 'value': fn / num, 'order': 'asc'}
+            {'name': 'FN', 'value': fn / num, 'order': 'asc'},
+            {'name': 'F1', 'value': f1, 'order': 'asc'}
         ])
 
 
